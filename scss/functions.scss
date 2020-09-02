@@ -1,0 +1,25 @@
+@mixin tablet{
+	@media screen and (max-width: 1023px) {
+		@content;
+	}
+}
+@mixin mobile{
+	@media screen and (max-width: 767px) {
+		@content;
+	}
+}
+@mixin ipadPortrail{
+	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+		@content;
+	}
+}
+@mixin ipadLandscape{
+	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+		@content;
+	}
+}
+@mixin responsive($width){
+	@media screen and(max-width: $width){
+		@content;
+	}
+}
