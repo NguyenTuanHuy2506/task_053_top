@@ -133,7 +133,8 @@ body>main {
         right: 3rem;
         width: 2.5rem;
         height: 2.5rem;
-        transform: rotate(45deg);
+        transform: translateY(-50%) rotate(45deg);
+        top: 50%;
     }
 }
 
