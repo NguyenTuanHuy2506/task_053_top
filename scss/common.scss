@@ -87,6 +87,10 @@ body>main {
         font-size: 1.6rem;
         font-weight: 500;
         color: #fff;
+        margin-top: 1.5rem;
+        @include mobile{
+            margin-top: .5rem;
+        }
     }
 }
 

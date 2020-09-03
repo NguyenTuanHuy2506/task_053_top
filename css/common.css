@@ -103,6 +103,13 @@ body>main {
     font-size: 1.6rem;
     font-weight: 500;
     color: #fff;
+    margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .heading .sub-heading {
+        margin-top: 0.5rem;
+    }
 }
 
 .linear-img {
