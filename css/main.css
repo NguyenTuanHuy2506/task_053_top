@@ -69,7 +69,7 @@ font-family: 'Montserrat', sans-serif;*/
     margin: 0;
 }
 
-@media screen and (-ms-high-contrast: active),
+@media only screen and (-ms-high-contrast: active),
 (-ms-high-contrast: none) {
     .mv figure>img {
         width: 100%;
@@ -880,7 +880,6 @@ screen and (max-width: 1024px) and (-ms-high-contrast: none) {
 
 .job__item img {
     width: 100%;
-    -ms-filter: brightness(1.12);
     filter: brightness(1.12);
 }
 
