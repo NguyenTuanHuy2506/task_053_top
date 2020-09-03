@@ -2,15 +2,17 @@
 @import 'functions_responsive.scss';
 @import 'assets/variables.scss';
 
-*{
+* {
     box-sizing: border-box;
 }
 
 body {
     font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "メイリオ", "ＭＳ ゴシック", sans-serif;
+
     @media screen and (max-width: 768px) {
         font-size: 1.4rem;
     }
+
     @media screen and (max-width: 768px) {
         padding: 0;
     }
@@ -27,16 +29,16 @@ body>main {
 }
 
 
-.fontRoboto{
+.fontRoboto {
     @extend %fontRoboto;
 }
 
-.fontMontserrat{
+.fontMontserrat {
     @extend %fontMontserrat;
 }
 
 /*nav--link*/
-.nav--link{
+.nav--link {
     position: absolute;
     top: 0;
     left: 0;
@@ -50,7 +52,7 @@ body>main {
  * entry button
  */
 
-.entry-button{
+.entry-button {
     width: 13.8rem;
     height: 4rem;
     outline: none !important;
@@ -60,16 +62,26 @@ body>main {
     color: #000;
     letter-spacing: .2rem;
     background-color: transparent;
+    @extend %transitionDefault;
+
+    &:hover {
+        opacity: .75;
+    }
 }
 
-.heading{
+.heading {
     @extend %fontMontserrat;
     font-size: 8rem;
     letter-spacing: 1rem;
     color: #fff;
     display: flex;
     flex-direction: column;
-    .sub-heading{
+
+    @include mobile{
+        font-size: 4rem;
+    }
+
+    .sub-heading {
         @extend %fontPrimary;
         letter-spacing: .1rem;
         font-size: 1.6rem;
@@ -78,12 +90,12 @@ body>main {
     }
 }
 
-.linear-img{
-    
-    background-image: linear-gradient(90deg, rgba(48,196,144,1) 0%, rgba(36,159,237,1) 100%);
+.linear-img {
+
+    background-image: linear-gradient(90deg, rgba(48, 196, 144, 1) 0%, rgba(36, 159, 237, 1) 100%);
     background-repeat: no-repeat;
 
-    &.heading{
+    &.heading {
         width: 100%;
         height: 24rem;
         @extend %flex;
@@ -93,7 +105,7 @@ body>main {
 }
 
 
-.more-button{
+.more-button {
     width: 100%;
     max-width: 31rem;
     height: 6rem;
@@ -101,4 +113,173 @@ body>main {
     background-color: transparent;
     @extend %fontMontserrat;
     font-weight: 600;
+    letter-spacing: .2rem;
+    @extend %transitionDefault;
+
+    &:hover {
+        opacity: .75;
+    }
+}
+
+.arrow-after {
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        transform: rotate(45deg);
+    }
+}
+
+
+/**
+ * to top button
+ */
+.to-top-button {
+    position: fixed;
+    width: 5rem;
+    height: 5rem;
+    background-color: $c-main;
+    right: 5rem;
+    bottom: 5rem;
+    display: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1000;
+    transition: all .3s ease;
+
+    &.active {
+        display: flex;
+    }
+
+    @include mobile {
+        right: 3rem;
+        bottom: 3rem;
+    }
+
+    span {
+        width: 3rem;
+        height: .2rem;
+        background-color: #fff;
+
+        &:nth-child(1) {
+            transform: translateX(.4rem) rotate(-45deg);
+        }
+
+        &:nth-child(2) {
+            transform: translateX(-.4rem) rotate(45deg);
+        }
+    }
+
+    &:hover {
+        opacity: .8;
+    }
+}
+
+/**
+ * hambuger button
+ */
+.hambuger-button {
+    width: 3rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 1030;
+    border: 0;
+    outline: none !important;
+    display: none;
+    background-color: transparent;
+
+    span {
+        width: 3rem;
+        height: .2rem;
+        background-color: #333;
+        position: absolute;
+        left: 0;
+        transition: all .3s ease;
+
+        &:nth-of-type(1) {
+            top: 0;
+        }
+
+        &:nth-of-type(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &:nth-of-type(3) {
+            bottom: 0;
+        }
+    }
+
+    &.active {
+        span:nth-of-type(1) {
+            transform: translateY(.9rem) rotate(45deg);
+        }
+
+        span:nth-of-type(2) {
+            opacity: 0;
+        }
+
+        span:nth-of-type(3) {
+            transform: translateY(-.9rem) rotate(-45deg);
+        }
+    }
+
+    @include ipadpro {
+        display: block;
+        top: 4rem;
+        right: 4rem;
+    }
+
+    @include mobile {
+        top: 2rem;
+        right: 2rem;
+    }
+}
+
+.passingbar {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        background-color: $c-main;
+        transform: skew(-15deg);
+
+    }
+
+    &.animated {
+        &::after {
+            -webkit-animation-name: passingBar;
+            animation-name: passingBar;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+
+    }
+}
+
+/*.passingtext */
+.passingtext {
+    opacity: 0;
+
+    &.animated {
+        -webkit-animation-name: passingText;
+        animation-name: passingText;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-delay: .4s;
+        animation-delay: .4s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
 }

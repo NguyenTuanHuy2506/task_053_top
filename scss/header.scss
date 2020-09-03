@@ -25,14 +25,52 @@ font-family: 'Montserrat', sans-serif;*/
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    background-image: linear-gradient(90deg, rgba(36, 159, 237, .75) 0%, rgba(48, 196, 144, .75) 100%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    transition: all .3s ease .2s, top .2s ease 0s;
     z-index: 1030;
+
+    @include ipadpro{
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    @include mobile{
+        height: 6rem;
+    }
+    
+    &.active {
+    /**
+     * header active
+     * active when scroll > 0
+     */
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding: 0 2rem;
+        box-shadow: 0 0 2rem rgba(#fff, .8);
+        background-size: 100% 100%;
+    }
 
     &__logo {
         /*header__logo*/
-        @extend %fontMontserrat;
         font-size: 3.6rem;
+        @extend %fontMontserrat;
         @extend %colorText;
         @extend %positionRelative;
+        @extend %transitionDefault;
+
+        &:hover {
+            opacity: .75;
+        }
+
+        @include mobile{
+            font-size: 2rem;
+        }
+
     }
 
     &__nav {
@@ -43,23 +81,67 @@ font-family: 'Montserrat', sans-serif;*/
         justify-content: space-between;
         padding-right: 3rem;
         margin-top: 1rem;
+
+        @include ipadpro{
+            flex-direction: column;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: calc(100vh - 100px);
+            padding-right: 0;
+            margin-top: 10rem;
+            background-image: linear-gradient(90deg, rgba(36, 159, 237, .75) 0%, rgba(48, 196, 144, .75) 100%);
+            background-repeat: no-repeat;
+            display: none;
+        }
+
+        @include mobile{
+            height: calc(100vh - 60px);
+            margin-top: 6rem;
+        }
+
+        &.open{
+            display: flex;
+        }
     }
 
-    &__menu{
-    /*header__menu*/
+    &__menu {
+        /*header__menu*/
         @extend %flex;
+        width: 100%;
 
-        li{
+        @include ipadpro{
+            flex-direction: column;
+            align-items: center;
+        }
+
+        li {
             font-size: 2rem;
             letter-spacing: .1rem;
 
             @extend %fontMontserrat;
             @extend %colorText;
             @extend %positionRelative;
+            @extend %transitionDefault;
 
-            &:not(:first-child){
+            @include ipadpro{
+                width: 100%;
+                max-width: 28rem;
+                margin: 1.5rem 0;
+                text-align: center;
+            }
+
+            &:hover {
+                opacity: .75;
+            }
+
+            &:not(:first-child) {
                 margin-left: 3rem;
-                &::before{
+
+                &::before {
                     content: '/';
                     @extend %fontMontserrat;
                     @extend %colorText;
@@ -68,19 +150,40 @@ font-family: 'Montserrat', sans-serif;*/
                     position: absolute;
                     left: -2rem;
                 }
+
+                @include ipadpro{
+                    margin-left: 0;
+                    &::before{
+                        content:'';
+                        display: none;
+                    }
+                }
             }
         }
     }
 
-    &__button{
+    &__button {
         /**
          * header button
          */
         @extend %flex;
+        @include ipadpro{
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
 
         li {
             margin-right: 1.7rem;
-        }
+            @include ipadpro{
+                width: 100%;
+                max-width: 28rem;
+                margin: 1.5rem 0;
 
+                .entry-button{
+                    width: 100%;
+                }
+            }
+        }
     }
 }

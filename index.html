@@ -21,6 +21,8 @@
     <link href="assets/plugins/slick/slick-theme.css" rel="stylesheet">
     
     <!-- build:addcss -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
     <link href="css/header.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
@@ -35,7 +37,7 @@
         <h1 class="header__logo">LOGO RECRUIT SITE<a class="nav--link" href="#"></a></h1>
         
         <!-- header__nav -->
-        <nav class="header__nav">
+        <nav class="header__nav animated">
 
         	<ul class="header__menu">
         		<li>
@@ -67,8 +69,12 @@
         			<button class="entry-button">ENTRY</button>
         		</li>
         	</ul>
-
         </nav>
+        <button class="hambuger-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <!-- /build:header -->
     </header>
     <main>
@@ -76,11 +82,11 @@
         <section class="mv mv-area">
 
         	<figure>
-        		<img src="images/img_mv.jpg" alt="">
+        		<img src="images/img_mv.jpg" alt="top banner">
         	</figure>
 
-    		<h2 class="mv__content">
-    			<img src="images/img_mv_content.png" alt="">
+    		<h2 class="mv__content wow bounceInLeft">
+    			<img src="images/img_mv_content.png" alt="top content">
     		</h2>
 
         </section>
@@ -92,14 +98,14 @@
     		<ul class="wrap active">
 
     			<li class="wrap__img">
-    				<img src="images/img_special01.jpg" alt="">
+    				<img src="images/img_special01.jpg" alt="成長秘話対談">
     			</li>
 
     			<li class="wrap__inner">
-    				<p class="wrap__label">
+    				<p class="wrap__label wow bounceInLeft animated">
     					<span class="fontMontserrat">#</span><span class="fontRoboto">1</span>
     				</p>
-    				<div>
+    				<div class=" wow bounceInLeft animated">
 	    				<h3 class="wrap__heading">成長秘話対談</h3>
 	    				<p class="wrap__description">
 	    					この文章はダミーです。<br/>
@@ -115,7 +121,7 @@
         	<ul class="wrap">
 
     			<li class="wrap__img">
-    				<img src="images/img_special02.jpg" alt="">
+    				<img src="images/img_special02.jpg" alt="社員の声">
     			</li>
 
     			<li class="wrap__inner">
@@ -135,7 +141,7 @@
 			<ul class="wrap">
 
     			<li class="wrap__img">
-    				<img src="images/img_special03.jpg" alt="">
+    				<img src="images/img_special03.jpg" alt="ルーキー座談会">
     			</li>
 
     			<li class="wrap__inner">
@@ -155,18 +161,19 @@
 
         </section>
 
+
  		<!-- build:about -->
         <section class="about about-area">
 
-    		<h2 class="heading linear-img">
-        		ABOUT
-        		<span class="sub-heading">〇〇〇について</span>
+    		<h2 class="heading linear-img wow bounceInLeft animated">
+    				ABOUT
+        			<span class="sub-heading">〇〇〇について</span>
         	</h2>
 
         	<ul class="about__inner">
         		<li>
         			<img src="images/img_about01.jpg" alt="〇〇〇がこだわる ５つのポイント">
-        			<div class="about__content">
+        			<div class="about__content wow bounceInLeft animated">
         				<h3>〇〇〇がこだわる ５つのポイント</h3>
 	        			<button class="more-button">
 	        				MORE
@@ -176,7 +183,7 @@
         		</li>
         		<li>
         			<img src="images/img_about02.jpg" alt="こだわりを実現する モノづくりの方法">
-        			<div class="about__content">
+        			<div class="about__content wow bounceInLeft animated">
         				<h3>こだわりを実現する モノづくりの方法</h3>
 	        			<button class="more-button">
 	        				MORE
@@ -187,10 +194,86 @@
         	
         </section>
 
+
+        <!-- build:person&job -->
+        <section class="job person-and-job-area">
+
+        	<div class="job__inner">
+        		<h2 class=" wow bounceInLeft animated">
+        			<span>PERSON</span>&<span></span><span>JOB</span>
+        		</h2>
+        		<p class=" wow bounceInLeft animated">
+        			この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。
+        		</p>
+        		<button class="more-button">MORE</button>
+        	</div>
+
+        	<ul class="job__wrap js-job-slick">
+
+        		<li class="job__item">
+
+        			<img src="images/img_person_and_job1.jpg" alt="名前花子 NAME HANAKO">
+        			<div>
+        				<span>01</span>
+        				<h5>名前花子
+        					<span>
+        						NAME HANAKO
+        					</span>
+        				</h5>
+        			</div>
+
+        		</li>
+
+        		<li class="job__item">
+
+        			<img src="images/img_person_and_job2.jpg" alt="名前太郎 NAME TAROU">
+        			<div>
+        				<span>02</span>
+        				<h5>名前太郎
+        					<span>
+        						NAME TAROU
+        					</span>
+        				</h5>
+        			</div>
+
+        		</li>
+
+        		<li class="job__item">
+
+        			<img src="images/img_person_and_job3.jpg" alt="名前太郎 NAME TAROU">
+        			<div>
+        				<span>03</span>
+        				<h5>名前太郎
+        					<span>
+        						NAME TAROU
+        					</span>
+        				</h5>
+        			</div>
+        			
+        		</li>
+
+        		<li class="job__item">
+
+        			<img src="images/img_person_and_job4.jpg" alt="名前花子 NAME HANAKO">
+        			<div>
+        				<span>04</span>
+        				<h5>名前花子
+        					<span>
+        						NAME HANAKO
+        					</span>
+        				</h5>
+        			</div>
+
+        		</li>
+        	</ul>
+
+        </section>
+
+
         <!-- build:growth -->
         <section class="growth growth-area">
         	
-    		<h2 class="heading linear-img">
+    		<h2 class="heading linear-img wow bounceInLeft animated">
         		GROWTH
         		<span class="sub-heading">キャリア紹介</span>
         	</h2>
@@ -200,21 +283,24 @@
         		<ul class="growth__inner">
         			<li>
 
-        				<div>
-        					<img src="images/img_growth01.jpg" alt="">
-        					<h4><span>人材についての考え方</span></h4>
+        				<div class=" wow bounceInLeft animated">
+        					<img src="images/img_growth01.jpg" alt="人材についての考え方">
+        					<h4 class="arrow-after"><span>人材についての考え方</span></h4>
+        					<a class="nav--link" href="#"></a>
         				</div>
-        				<div>
-        					<img src="images/img_growth01.jpg" alt="">
-        					<h4><span>研修について</span></h4>
+        				<div class=" wow bounceInLeft animated">
+        					<img src="images/img_growth02.jpg" alt="研修について">
+        					<h4 class="arrow-after"><span>研修について</span></h4>
+        					<a class="nav--link" href="#"></a>
         				</div>
         				
         			</li>
         			<li>
 
-        				<div>
-        					<img src="images/img_growth03.jpg" alt="">
-        					<h4><span>〇〇〇の社会人生活をのぞく</span></h4>
+        				<div class=" wow bounceInRight animated">
+        					<img src="images/img_growth03.jpg" alt="〇〇〇の社会人生活をのぞく">
+        					<h4 class="arrow-after"><span>〇〇〇の社会人生活をのぞく</span></h4>
+        					<a class="nav--link" href="#"></a>
         				</div>
         				
         			</li>
@@ -228,22 +314,51 @@
         <!-- build:recruit -->
         <section class="recruit recruit-area">
         	
-    		<h2 class="heading linear-img">
+    		<h2 class="heading linear-img wow bounceInLeft animated">
         		RECRUIT
         		<span class="sub-heading">採用情報</span>
         	</h2>
 
-        	<ul class="recruit__inner">
-        	</ul>
+        	<div class="container">
+
+        		<ul class="recruit__inner">
+
+	        		<li class=" wow bounceInLeft animated">
+	        			<img src="images/img_recruit1.png" alt="募集要項">
+	        			<span class="arrow-after">募集要項</span>
+	        			<a class="nav--link" href="#"></a>
+	        		</li>
+
+	        		<li class=" wow bounceInRight animated">
+	        			<img src="images/img_recruit2.png" alt="福利厚生">
+	        			<span class="arrow-after">福利厚生</span>
+	        			<a class="nav--link" href="#"></a>
+	        		</li>
+
+	        	</ul>
+
+        	</div>
+        	
         </section>
         <!-- /build:content -->
     </main>
-    <footer>
+    <footer class="footer">
         <!-- build:footer -->
+        <div class="container">
+        	<div class="footer__inner">
+        		<h3>LOGO
+        			<a class="nav--link" href="#"></a>
+        		</h3>
+        		<p>©0000 SAMPLE Inc. All Rights Reserved.</p>
+        	</div>
+        	
+        </div>
     </footer>
+     <a class="to-top-button animated bounceInUp"><span></span><span></span></a>
     <script src="assets/js/jquery-2.2.4.min.js"></script>
     <script src="assets/js/fontawesome.min.js"></script>
     <script src="assets/plugins/slick/slick.min.js"></script>
+    <script src="js/wow.min.js"></script>
     <script src="js/index.js"></script>
     <!-- build:addJs -->
 </body>

@@ -40,8 +40,8 @@ font-family: 'Montserrat', sans-serif;*/
 
     &__content {
         /**
-     * mv content
-     */
+         * mv content
+         */
         position: absolute;
         left: 0;
         right: 0;
@@ -49,6 +49,11 @@ font-family: 'Montserrat', sans-serif;*/
         bottom: 4.5%;
         width: 100%;
         max-width: 160rem;
+
+        @include ipadpro {
+            bottom: 50%;
+            transform: translateY(50%);
+        }
 
         img {
 
@@ -73,6 +78,11 @@ font-family: 'Montserrat', sans-serif;*/
     height: 60rem;
     @extend %flex;
     align-items: flex-start;
+
+    @include ipadpro {
+        height: auto;
+        flex-direction: column;
+    }
 }
 
 .wrap {
@@ -103,19 +113,42 @@ font-family: 'Montserrat', sans-serif;*/
         min-width: calc(8.375vw - 7.5px);
     }
 
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+        @include ipadpro {
+            max-width: 100%;
+        }
+    }
+
     &__img {
+        /**
+         * wrap img
+         */
         @extend %fillSize;
         @extend %positionRelative;
         display: none;
         overflow: hidden;
 
+        @include mobile {
+            height: 40rem;
+
+        }
+
         img {
             @extend %objectFit;
-            @include onIE{
+            @extend %transitionDefault;
+
+            @include onIE {
                 width: 100%;
                 height: auto;
                 transform: scale(1.2);
             }
+
+            @media only screen and (max-width: 500px) {
+                object-position: 11%;
+            }
+
         }
     }
 
@@ -130,6 +163,11 @@ font-family: 'Montserrat', sans-serif;*/
             justify-content: center;
             flex-direction: row-reverse;
             transition: all .5s ease;
+
+            @include ipadpro {
+                flex-direction: column;
+                padding: 2rem;
+            }
         }
     }
 
@@ -137,9 +175,26 @@ font-family: 'Montserrat', sans-serif;*/
         color: #fff;
         text-align: center;
         letter-spacing: .3rem;
+        max-width: 45rem;
+        position: relative;
+
+        @include ipadpro {
+            text-align: left;
+            padding-left: 2rem;
+        }
+
+        @include mobile {
+
+            line-height: 1;
+            margin-top: 2rem;
+        }
 
         .fontRoboto {
             font-size: 6.8rem;
+
+            @include mobile {
+                font-size: 5rem;
+            }
         }
 
         .fontMontserrat {
@@ -158,6 +213,14 @@ font-family: 'Montserrat', sans-serif;*/
         color: #fff;
         font-weight: 700;
         letter-spacing: .2rem;
+
+        @include ipadpro {
+            writing-mode: horizontal-tb;
+
+            @include onIE {
+                writing-mode: lr-tb;
+            }
+        }
     }
 
     &__heading {
@@ -171,7 +234,15 @@ font-family: 'Montserrat', sans-serif;*/
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+
+        @include mobile {
+            margin-right: 0;
+            white-space: unset;
+            font-size: 1.4rem;
+            margin-top: 1rem;
+        }
     }
+
     .wrap__direct {
         font-size: 2rem;
         color: #fff;
@@ -179,6 +250,11 @@ font-family: 'Montserrat', sans-serif;*/
         font-weight: 700;
         letter-spacing: .1rem;
         display: none;
+
+        @include mobile {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
     }
 
 }
@@ -214,11 +290,20 @@ font-family: 'Montserrat', sans-serif;*/
         padding-right: 2rem;
         @extend %flex;
         flex-direction: column;
+
+        @include ipadpro {
+            padding: 2rem;
+        }
+
         div {
             @extend %flex;
             justify-content: flex-end;
             flex-direction: column;
             margin-top: auto;
+
+            @include mobile {
+                padding: 2rem 0;
+            }
         }
     }
 
@@ -227,16 +312,32 @@ font-family: 'Montserrat', sans-serif;*/
 
         .fontRoboto {
             font-size: 12rem;
+
+            @include mobile {
+                font-size: 6rem;
+            }
         }
 
         .fontMontserrat {
             font-size: 6rem;
+
+            @include mobile {
+                font-size: 4rem;
+            }
         }
 
         &::before {
             content: 'SPECIAL';
             @extend %fontMontserrat;
             font-size: 6rem;
+
+            @include ipadpro {
+                font-size: 4rem;
+            }
+
+            @include mobile {
+                font-size: 2rem;
+            }
         }
     }
 
@@ -266,6 +367,15 @@ font-family: 'Montserrat', sans-serif;*/
         height: auto;
         margin-top: 1rem;
         line-height: 5rem;
+
+        @include ipadpro {
+            font-size: 2.5rem;
+        }
+
+        @include mobile {
+            font-size: 1.4rem;
+            line-height: 2.5rem;
+        }
     }
 
     .wrap__direct {
@@ -278,26 +388,43 @@ font-family: 'Montserrat', sans-serif;*/
 /**
  * about
  */
-.about{
+.about {
     width: 100%;
 
-    &__inner{
+    &__inner {
         width: 100%;
         @extend %flex;
 
-        li{
+        @include ipadpro {
+            flex-direction: column;
+        }
+
+        li {
             width: 100%;
             max-width: 50%;
             @extend %positionRelative;
 
-            img{
+            @include ipadpro {
+                max-width: 100%;
+            }
+
+            @include mobile {
+                height: 40rem;
+            }
+
+            img {
                 width: 100%;
+
+                @include mobile {
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
 
         }
     }
 
-    &__content{
+    &__content {
         /**
          * about content
          */
@@ -309,18 +436,29 @@ font-family: 'Montserrat', sans-serif;*/
         padding-top: 6rem;
         padding-left: 8rem;
 
-        h3{
+        @include mobile {
+            padding: 2rem;
+        }
+
+        h3 {
             max-width: 33rem;
-            @include onIE{
+
+            @include onIE {
                 max-width: 34rem;
             }
+
             font-weight: 700;
             font-size: 3.6rem;
             color: #333;
             line-height: 5rem;
+
+            @include mobile {
+                max-width: 18rem;
+                font-size: 2rem;
+            }
         }
 
-        .more-button{
+        .more-button {
             margin-top: 3rem;
         }
     }
@@ -329,30 +467,57 @@ font-family: 'Montserrat', sans-serif;*/
 /**
  * growth
  */
-.growth{
+.growth {
     width: 100%;
 
-    &__inner{
+    &__inner {
+        /**
+         * growth inner
+         */
         width: 100%;
         margin: 10rem 0;
         @extend %flex;
         justify-content: space-between;
 
-        li{
+        @include ipadpro {
+            margin-top: 3rem;
+            margin-bottom: 5rem;
+            padding: 0 2rem;
+        }
+
+        @include mobile {
+            flex-direction: column;
+        }
+
+        li {
             width: 100%;
             max-width: calc(50% - 10px);
             @extend %flex;
 
-            &:nth-child(1){
+            @include mobile {
+                max-width: 100%;
+            }
+
+            &:nth-child(1) {
                 flex-direction: column;
                 justify-content: space-between;
 
                 div {
                     max-height: 20rem;
-                    h4{
+
+                    @include mobile {
+                        max-height: 100%;
+                    }
+
+                    h4 {
                         color: #333;
                         padding-left: 4.2rem;
-                        &::after{
+
+                        @include mobile {
+                            padding-left: 2rem;
+                        }
+
+                        &::after {
                             border-top: .2rem solid #333;
                             border-right: .2rem solid #333;
                         }
@@ -360,11 +525,17 @@ font-family: 'Montserrat', sans-serif;*/
                 }
 
             }
-             &:nth-child(2){
-                div h4{
+
+            &:nth-child(2) {
+                div h4 {
                     color: #fff;
                     padding-left: 3.5rem;
-                    &::after{
+
+                    @include mobile {
+                        padding-left: 2rem;
+                    }
+
+                    &::after {
                         border-top: .2rem solid #fff;
                         border-right: .2rem solid #fff;
                     }
@@ -374,33 +545,40 @@ font-family: 'Montserrat', sans-serif;*/
 
             div {
                 width: 100%;
-                @include onIE{
+
+                @include onIE {
                     height: 100%;
                 }
-                @extend %positionRelative;
 
-                img{
+                @include mobile {
+                    margin-top: 3rem;
+                }
+
+                @extend %positionRelative;
+                @extend %transitionDefault;
+
+                &:hover {
+                    opacity: .75;
+                }
+
+                img {
                     width: 100%;
                 }
 
-                h4{
+                h4 {
                     position: absolute;
                     font-weight: 700;
                     font-size: 2.4rem;
                     top: 50%;
                     left: 0;
                     right: 0;
-                    span{
-                        max-width: 29rem;
+
+                    @include mobile {
+                        font-size: 1.6rem;
                     }
 
-                    &::after{
-                        content: '';
-                        position: absolute;
-                        right: 3rem;
-                        width: 2.5rem;
-                        height: 2.5rem;
-                        transform: rotate(45deg);
+                    span {
+                        max-width: 29rem;
                     }
                 }
             }
@@ -413,8 +591,229 @@ font-family: 'Montserrat', sans-serif;*/
 /**
  * recruit
  */
-.recruit{
+.recruit {
     width: 100%;
+
+    &__inner {
+
+        /**
+         * recruit inner
+         */
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 10rem 0;
+
+        @include mobile {
+            flex-direction: column;
+            margin-top: 3rem;
+            margin-top: 5rem;
+            padding: 0 2rem;
+        }
+
+        li {
+            width: 100%;
+            height: 14rem;
+            max-width: calc(50% - 10px);
+            background-color: #545662;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @extend %positionRelative;
+            @extend %transitionDefault;
+
+            @include mobile {
+                max-width: 100%;
+                margin-top: 3rem;
+            }
+
+            &:hover {
+                opacity: .75;
+            }
+
+            img {
+                position: absolute;
+                left: 7rem;
+                top: 50%;
+                transform: translateY(-50%);
+
+                @include mobile {
+                    left: 2rem;
+                }
+            }
+
+            span {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2.5rem;
+                color: #fff;
+
+                &::after {
+                    border-top: .2rem solid #fff;
+                    border-right: .2rem solid #fff;
+                }
+            }
+        }
+    }
 }
 
 
+/**
+ * person & job
+ */
+.job {
+    width: 100%;
+    @extend %flex;
+
+    @media only screen and(max-width: 500px) {
+        flex-direction: column;
+    }
+
+    &__inner {
+        /**
+         * job inner
+         */
+        width: 100%;
+        max-width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 4.375%;
+        background-color: #333;
+
+        @include ipadpro {
+            max-width: 50%;
+            padding: 2rem;
+        }
+
+        @media only screen and(max-width: 500px) {
+            max-width: 100%;
+        }
+
+        h2 {
+            @extend %fontMontserrat;
+            font-size: 6rem;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            letter-spacing: .5rem;
+
+            @include ipadpro {
+                font-size: 4.5rem;
+            }
+        }
+
+        p {
+            margin-top: 3rem;
+            font-size: 1.6rem;
+            color: #fff;
+            letter-spacing: .2rem;
+        }
+
+        .more-button {
+            margin-top: 2.5rem;
+            border-color: #fff;
+            color: #fff;
+
+            @media only screen and(max-width: 500px) {
+                max-width: 100%;
+            }
+        }
+    }
+
+    &__wrap {
+        /**
+         * job wrap
+         * js job wrap
+         * slick slide in this section
+         */
+        width: 100%;
+        max-width: 70%;
+        @extend %positionRelative;
+
+        @include ipadpro {
+            max-width: 50%;
+        }
+
+        @media only screen and(max-width: 500px) {
+            max-width: 100%;
+        }
+
+        &::after {
+            content: '';
+            width: 6rem;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #333;
+        }
+
+        .slick-next {
+            width: 2.5rem;
+            height: 2.5rem;
+            right: 2.5rem;
+            z-index: 1;
+
+            &::before {
+                content: '';
+                @extend %fillSize;
+                width: 2.5rem;
+                height: 2.5rem;
+                transform: rotate(45deg);
+                border-top: .2rem solid #fff;
+                border-right: .2rem solid #fff;
+                display: block;
+            }
+        }
+    }
+
+    &__item {
+        /**
+         * job item
+         * item in job wrap slick
+         */
+
+        @extend %positionRelative;
+
+        img {
+            width: 100%;
+            -ms-filter: brightness(1.12);
+            filter: brightness(1.12);
+        }
+
+        div {
+            position: absolute;
+            left: 5rem;
+            bottom: 6rem;
+
+            span {
+                @extend %fontMontserrat;
+                font-size: 7rem;
+                color: #fff;
+            }
+
+            h5 {
+                margin-top: 2rem;
+                color: #fff;
+                font-weight: 700;
+                font-size: 4.5rem;
+                display: flex;
+                flex-direction: column;
+                letter-spacing: .3rem;
+
+                span {
+                    @extend %fontMontserrat;
+                    display: block;
+                    font-size: 2rem;
+                    font-weight: 900;
+                    margin-top: 1rem;
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+}
